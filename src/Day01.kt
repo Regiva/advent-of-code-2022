@@ -1,17 +1,25 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+
+    fun readElves(fileName: String): Sequence<Sequence<Int>> {
+        return readText(fileName)
+            .splitToSequence("\n\n")
+            .map { it.lineSequence().map(String::toInt) }
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
+    // Time — O(n), Memory — O(1)?
+    fun part1(input: Sequence<Sequence<Int>>) = input.maxOf { it.sum() }
+
+    // Time — O(n*log(n)), Memory — O(n)?
+    fun part2(input: Sequence<Sequence<Int>>): Int {
+        return input.sortedByDescending { it.sum() }
+            .take(3)
+            .sumOf { it.sum() }
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
+    val testInput = readElves("Day01_test")
+    check(part1(testInput) == 24000)
 
-    val input = readInput("Day01")
+    val input = readElves("Day01")
     println(part1(input))
     println(part2(input))
 }

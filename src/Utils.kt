@@ -2,11 +2,10 @@ import java.io.File
 import java.math.BigInteger
 import java.security.MessageDigest
 
-/**
- * Reads lines from the given input txt file.
- */
-fun readInput(name: String) = File("src", "$name.txt")
-    .readLines()
+fun file(name: String) = File("src", "$name.txt")
+
+fun readInput(fileName: String) = file(fileName).readLines()
+fun readText(fileName: String) = file(fileName).readText()
 
 /**
  * Converts string to md5 hash.
