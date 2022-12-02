@@ -4,7 +4,7 @@ import java.security.MessageDigest
 
 fun file(name: String) = File("src", "$name.txt")
 
-fun readInput(fileName: String) = file(fileName).readLines()
+fun readLines(fileName: String) = file(fileName).readLines()
 fun readText(fileName: String) = file(fileName).readText()
 
 /**
