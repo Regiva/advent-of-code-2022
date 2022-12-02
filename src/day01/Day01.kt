@@ -1,3 +1,7 @@
+package day01
+
+import readText
+
 fun main() {
 
     fun readElves(fileName: String): Sequence<Sequence<Int>> {
@@ -16,10 +20,10 @@ fun main() {
             .sumOf { it.sum() }
     }
 
-    val testInput = readElves("Day01_test")
+    val testInput = readElves("day01/Day01_test")
     check(part1(testInput) == 24000)
 
-    val input = readElves("Day01")
+    val input = readElves("day01/Day01")
     println(part1(input))
     println(part2(input))
 }
